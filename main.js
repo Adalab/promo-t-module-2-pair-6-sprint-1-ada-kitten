@@ -16,7 +16,7 @@ const kittenOne = <li class="card">
                 hace 500 años, donde tuvo su origen muy posiblemente.
               </p>
             </article>
-          </li>
+          </li>;
 
 const kittenTwo = <li class="card">
             <img
@@ -31,7 +31,7 @@ const kittenTwo = <li class="card">
               hasta con pinta de alienígena han llegado a definir a esta raza
               gatuna que se caracteriza por la «ausencia» de pelo.
             </p>
-          </li>
+          </li>;
 
 const kittenThree = <li class="card">
             <img
@@ -46,4 +46,8 @@ const kittenThree = <li class="card">
               bella mirada se ha convertido en una de sus señas de identidad.
               Sus ojos son grandes y las orejas resultan largas y en punta.
             </p>
-          </li>
+          </li>;
+
+listElement.innerHTML = kittenOne; 
+listElement.innerHTML = kittenTwo; 
+listElement.innerHTML = kittenThree; 
