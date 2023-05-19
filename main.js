@@ -1,12 +1,7 @@
 'use strict'
 
-<<<<<<< HEAD
 const listElement = document.querySelector ('.js-list'); 
 const kittenOne = `<li class="card">
-=======
-const listElement = document.querySelector('.js-list'); 
-const kittenOne = <li class="card">
->>>>>>> 35469beca2870f664e4d94f871b9f6665cba3db3
             <article>
               <img
                 class="card_img"
@@ -64,9 +59,9 @@ const kittenThreeName = 'Cielo';
 const kittenThreeDescription = ' Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
 const kittenThreeRace = 'Maine Coon';
 
-listElement.innerHTML = kittenOne; 
-listElement.innerHTML += kittenTwo; 
-listElement.innerHTML += kittenThree; 
+//listElement.innerHTML = kittenOne; 
+//listElement.innerHTML += kittenTwo; 
+//listElement.innerHTML += kittenThree; 
 
 listElement.innerHTML = `<li class="card">
 <article>
