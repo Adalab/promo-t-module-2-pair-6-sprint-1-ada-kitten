@@ -19,7 +19,10 @@ const kittenOne = `<li class="card">
   </p>
 </article>
 </li>`;
-
+const kittenTwoImg = 'https://dev.adalab.es/sphynx-gato.webp';
+const kittenTwoName = 'Fiona';
+const kittenTwoDescription = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo Hola';
+const kittenTwoRace = 'Sphynx';
 
 const kittenTwo = `<li class="card">
 <article>
@@ -35,10 +38,11 @@ const kittenTwo = `<li class="card">
   </p>
 </article>
 </li>`;
-const kittenTwoImg = 'https://dev.adalab.es/sphynx-gato.webp';
-const kittenTwoName = 'Fiona';
-const kittenTwoDescription = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo Hola';
-const kittenTwoRace = 'Sphynx';
+
+const kittenThreeImg = 'https://dev.adalab.es/maine-coon-cat.webp';
+const kittenThreeName = 'Cielo';
+const kittenThreeDescription = ' Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
+const kittenThreeRace = 'Maine Coon';
 
 const kittenThree = `<li class="card">
 <article>
@@ -55,10 +59,6 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-const kittenThreeImg = 'https://dev.adalab.es/maine-coon-cat.webp';
-const kittenThreeName = 'Cielo';
-const kittenThreeDescription = ' Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
-const kittenThreeRace = 'Maine Coon';
 
 listElement.innerHTML = kittenOne; 
 listElement.innerHTML += kittenTwo; 
@@ -81,4 +81,23 @@ if( kittenTwoDescription.includes(descrSearchText) ) {
 if( kittenThreeDescription.includes(descrSearchText) ) {
  listElement.innerHTML += kittenThree; 
 }
-    
+
+const btnAdd =document.querySelector('.js-btn-add');
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+btnAdd.addEventListener('click', () => {
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+  //completa el código
+  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+} else {
+  //completa el código
+  
+}
+});
