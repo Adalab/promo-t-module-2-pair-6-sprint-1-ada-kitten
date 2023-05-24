@@ -60,10 +60,11 @@ const kittenThree = `<li class="card">
 </li>`;
 
 
+
+
 listElement.innerHTML = kittenOne; 
 listElement.innerHTML += kittenTwo; 
 listElement.innerHTML += kittenThree; 
-
 
 
 
@@ -101,3 +102,33 @@ if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   
 }
 });
+
+const btnCancel = document.querySelector ('.js-button-cancel');
+const sctForm = document.querySelector ('.js-new-form');
+const addLogo = document.querySelector ('.js-add-logo');
+
+/*
+btnCancel.addEventListener('click', (event) => {
+
+sctForm.classList.toggle('collapsed');
+
+});
+
+addLogo.addEventListener('click', (event) => {
+
+sctForm.classList.toggle('collapsed');
+
+});
+*/
+
+
+sctForm.addEventListener('click', handleClickNewCatForm);
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (sctForm.classList.contains('collapsed')) {
+    //completa el código
+  } else (sctForm.classList.contains('collapsed')){
+    //completa el código
+  }
+}
