@@ -89,23 +89,24 @@ const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
 const labelMessageError = document.querySelector('.js-label-error');
 
-btnAdd.addEventListener('click', () => {
-const valueDesc = inputDesc.value;
-const valuePhoto = inputPhoto.value;
-const valueName = inputName.value;
+// btnAdd.addEventListener('click', () => {
+// const valueDesc = inputDesc.value;
+// const valuePhoto = inputPhoto.value;
+// const valueName = inputName.value;
 
-if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-  //completa el código
-  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
-} else {
-  //completa el código
+// if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+//   //completa el código
+//   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+// } else {
+//   //completa el código
   
-}
-});
+// }
+// });
 
 const btnCancel = document.querySelector ('.js-button-cancel');
 const sctForm = document.querySelector ('.js-new-form');
 const addLogo = document.querySelector ('.js-add-logo');
+const menuNav = document.querySelector ('.js-menunav');
 
 /*
 btnCancel.addEventListener('click', (event) => {
@@ -122,13 +123,40 @@ sctForm.classList.toggle('collapsed');
 */
 
 
-sctForm.addEventListener('click', handleClickNewCatForm);
+menuNav.addEventListener('click', handleClickNewCatForm);
 
 function handleClickNewCatForm(event) {
   event.preventDefault();
   if (sctForm.classList.contains('collapsed')) {
-    //completa el código
-  } else (sctForm.classList.contains('collapsed')){
-    //completa el código
+    sctForm.classList.remove('collapsed');
+  } else {
+    sctForm.classList.add('collapsed');
   }
 }
+
+//modifica el evento para cumplir una función manejadora
+btnAdd.addEventListener('click', addNewKitten);
+
+function addNewKitten(event) {
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+  //completa el código
+  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+  } else {
+  //completa el código
+  
+}
+}
+const inputRace = document.querySelector('.js-input-race');
+const desc = inputDesc.value;
+  const url = inputPhoto.value;
+  const name = inputName.value;
+  const race= inputRace.value;
+function renderKitten(url, desc, name, race) {
+  
+  return item
+}
+console.log(renderKitten(uiekdfl,mamamama,cris,gato));
