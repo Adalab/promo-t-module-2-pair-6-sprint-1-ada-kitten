@@ -150,13 +150,60 @@ function addNewKitten(event) {
   
 }
 }
+// crear cards con gatos
 const inputRace = document.querySelector('.js-input-race');
-const desc = inputDesc.value;
-  const url = inputPhoto.value;
-  const name = inputName.value;
-  const race= inputRace.value;
+
+const cat1 = renderKitten (kittenOneImg,kittenOneDescription, kittenOneName,kittenOneRace );
+const cat2 = renderKitten (kittenTwoImg,kittenTwoDescription, kittenTwoName,kittenTwoRace );
+const cat3 = renderKitten (kittenThreeImg,kittenThreeDescription, kittenThreeName,kittenThreeRace );
+
 function renderKitten(url, desc, name, race) {
-  
-  return item
+  `<li class="card">
+<article>
+  <img
+    class="card_img"
+    src="${url}"
+    alt="siames-cat"
+  />
+  <h3 class="card_title">${name}</h3>
+  <h4 class="card_race">${race}</h4>
+  <p class="card_description">
+    ${desc}
+  </p>
+</article>
+</li>`;
+ 
 }
-console.log(renderKitten(uiekdfl,mamamama,cris,gato));
+// filtrar por descripcion
+
+const buttonSearch = document.querySelector('.js-button-search');
+
+
+
+// const input_search_desc = document.querySelector('.js_in_search_desc');
+// const descrSearchText = input_search_desc.value; 
+const input_search_race =document.querySelector('.js-inputRace"')
+function filterCat (event) {
+  const valueRace = inputRace.value;
+  const valueDesc = inputDesc.value;
+  if ( valueDesc === '' || valueRace === '') {
+    labelMsg.innerHTML = "tienes que rellenar algún campo"
+  } else {
+
+  }
+
+}
+
+const filterKitten = (event) => {
+  if (kittenDesc1.includes(descrSearchText)) {
+    listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.includes(descrSearchText)) {
+    listElement.innerHTML += kittenTwo;
+  }
+  if (kittenDesc3.includes(descrSearchText)) {
+    listElement.innerHTML += kittenThree;
+  }
+};
+buttonSearch.addEventListener('click', filterKitten);
+
