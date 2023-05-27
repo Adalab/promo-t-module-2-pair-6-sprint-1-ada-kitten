@@ -172,7 +172,6 @@ function renderKitten(url, desc, name, race) {
   </p>
 </article>
 </li>`;
- 
 }
 // filtrar por descripcion
 
@@ -182,28 +181,28 @@ const buttonSearch = document.querySelector('.js-button-search');
 
 // const input_search_desc = document.querySelector('.js_in_search_desc');
 // const descrSearchText = input_search_desc.value; 
-const input_search_race =document.querySelector('.js-inputRace"')
+const input_search_race =document.querySelector('.js-inputRace');
+const labelMsg = document.querySelector('.js-label-msg');
+
+
 function filterCat (event) {
+  event.preventDefault()
   const valueRace = inputRace.value;
-  const valueDesc = inputDesc.value;
-  if ( valueDesc === '' || valueRace === '') {
+  const valueDescripcion = inputDesc.value;
+  if ( valueDescripcion === '' || valueRace === '') {
     labelMsg.innerHTML = "tienes que rellenar algún campo"
-  } else {
+}}
+buttonSearch.addEventListener('click', filterCat);
+// const filterKitten = (event) => {
+//   if (kittenDesc1.includes(descrSearchText)) {
+//     listElement.innerHTML += kittenOne;
+//   }
+//   if (kittenDesc2.includes(descrSearchText)) {
+//     listElement.innerHTML += kittenTwo;
+//   }
+//   if (kittenDesc3.includes(descrSearchText)) {
+//     listElement.innerHTML += kittenThree;
+//   }
+// };
 
-  }
-
-}
-
-const filterKitten = (event) => {
-  if (kittenDesc1.includes(descrSearchText)) {
-    listElement.innerHTML += kittenOne;
-  }
-  if (kittenDesc2.includes(descrSearchText)) {
-    listElement.innerHTML += kittenTwo;
-  }
-  if (kittenDesc3.includes(descrSearchText)) {
-    listElement.innerHTML += kittenThree;
-  }
-};
-buttonSearch.addEventListener('click', filterKitten);
-
+// buttonSearch.addEventListener('click', filterKitten);
