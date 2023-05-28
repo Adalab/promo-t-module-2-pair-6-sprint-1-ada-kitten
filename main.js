@@ -126,9 +126,9 @@ sctForm.addEventListener('click', handleClickNewCatForm);
 
 function handleClickNewCatForm(event) {
   event.preventDefault();
-  if (sctForm.classList.contains('collapsed')) {
+  if (sctForm.classList.toggle('collapsed');) {
     //completa el código
-  } else (sctForm.classList.contains('collapsed')){
+  } else (sctForm.classList.toggle('collapsed'));{
     //completa el código
   }
 }
