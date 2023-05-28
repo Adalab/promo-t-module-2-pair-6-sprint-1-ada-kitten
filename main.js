@@ -71,17 +71,17 @@ listElement.innerHTML += kittenThree;
 const input_search_desc = document.querySelector('.js_in_search_desc');
 const descrSearchText = input_search_desc.value; 
 
-if( kittenOneDescription.includes(descrSearchText) ) {
- listElement.innerHTML = kittenOne;
-}
+// if( kittenOneDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML = kittenOne;
+// }
 
-if( kittenTwoDescription.includes(descrSearchText) ) {
- listElement.innerHTML += kittenTwo;
-}
+// if( kittenTwoDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML += kittenTwo;
+// }
 
-if( kittenThreeDescription.includes(descrSearchText) ) {
- listElement.innerHTML += kittenThree; 
-}
+// if( kittenThreeDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML += kittenThree; 
+// }
 
 const btnAdd =document.querySelector('.js-btn-add');
 const inputDesc = document.querySelector('.js-input-desc');
@@ -147,9 +147,9 @@ function addNewKitten(event) {
   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
   } else {
   //completa el código
-  
 }
-}
+};
+
 // crear cards con gatos
 const inputRace = document.querySelector('.js-input-race');
 
@@ -177,32 +177,31 @@ function renderKitten(url, desc, name, race) {
 
 const buttonSearch = document.querySelector('.js-button-search');
 
-
-
 // const input_search_desc = document.querySelector('.js_in_search_desc');
 // const descrSearchText = input_search_desc.value; 
 const input_search_race =document.querySelector('.js-inputRace');
 const labelMsg = document.querySelector('.js-label-msg');
 
 
-function filterCat (event) {
-  event.preventDefault()
-  const valueRace = inputRace.value;
-  const valueDescripcion = inputDesc.value;
+function filterkitten (event) {
+  // event.preventDefault()
+  const valueRace = input_search_race.value;
+  const valueDescripcion = input_search_desc.value;
   if ( valueDescripcion === '' || valueRace === '') {
     labelMsg.innerHTML = "tienes que rellenar algún campo"
-}}
-buttonSearch.addEventListener('click', filterCat);
-// const filterKitten = (event) => {
-//   if (kittenDesc1.includes(descrSearchText)) {
-//     listElement.innerHTML += kittenOne;
-//   }
-//   if (kittenDesc2.includes(descrSearchText)) {
-//     listElement.innerHTML += kittenTwo;
-//   }
-//   if (kittenDesc3.includes(descrSearchText)) {
-//     listElement.innerHTML += kittenThree;
-//   }
-// };
+  }
+  if (kittenDesc1.includes(descrSearchText)) {
+        listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.includes(descrSearchText)) {
+        listElement.innerHTML += kittenTwo;
+  }
+  if (kittenDesc3.includes(descrSearchText)) {
+        listElement.innerHTML += kittenThree;
+  }
+  };
 
-// buttonSearch.addEventListener('click', filterKitten);
+
+buttonSearch.addEventListener('click', filterkitten);
+
+
