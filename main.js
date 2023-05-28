@@ -1,6 +1,31 @@
 'use strict'
 
+// traernos la lista de los gatos
 const listElement = document.querySelector ('.js-list'); 
+
+// poner los gatos en objetos
+// const kittenData_1 = {
+//   image: 'https://dev.adalab.es/gato-siames.webp',
+//   name: 'Anastasio',
+//   desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+//   race: 'Siames',
+// };
+
+// const kittenData_2 = {
+//   image: 'https://dev.adalab.es/sphynx-gato.webp',
+//   name: 'Fiona',
+//   desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño…hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo Hola',
+//   race: 'Sphynx',
+// };
+// const kittenData_3 = {
+//   image: 'https://dev.adalab.es/maine-coon-cat.webp',
+//   name: 'Cielo',
+//   desc: ' Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
+//   race: 'Maine Coon',
+// };
+
+// Dar una variable a cada dato de cada gato y sustituirla en la lista
+
 const kittenOneImg = 'https://dev.adalab.es/gato-siames.webp';
 const kittenOneName = 'Anastasio';
 const kittenOneDescription = ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente. Hola.';
@@ -61,7 +86,7 @@ const kittenThree = `<li class="card">
 
 
 
-
+//  Añadir a la constante listaElement  cada li de cada gato.
 listElement.innerHTML = kittenOne; 
 listElement.innerHTML += kittenTwo; 
 listElement.innerHTML += kittenThree; 
@@ -108,21 +133,31 @@ const sctForm = document.querySelector ('.js-new-form');
 const addLogo = document.querySelector ('.js-add-logo');
 const menuNav = document.querySelector ('.js-menunav');
 
-/*
-btnCancel.addEventListener('click', (event) => {
 
-sctForm.classList.toggle('collapsed');
+// btnCancel.addEventListener('click', (event) => {
+// sctForm.classList.toggle('collapsed');
+// });
 
-});
+// cancelar el formulario de añadir
+const cancelNewKitten = (event) => {
+  event.preventDefault();
+  sctForm.classList.toggle('collapsed');
 
-addLogo.addEventListener('click', (event) => {
-
-sctForm.classList.toggle('collapsed');
-
-});
-*/
+};
+btnCancel.addEventListener('click', cancelNewKitten);
 
 
+
+
+
+
+// addLogo.addEventListener('click', (event) => {
+
+// sctForm.classList.toggle('collapsed');
+
+// });
+
+// Hacer una funcion para el boton de añadir y le asignamos un evento
 menuNav.addEventListener('click', handleClickNewCatForm);
 
 function handleClickNewCatForm(event) {
@@ -133,6 +168,8 @@ function handleClickNewCatForm(event) {
     sctForm.classList.add('collapsed');
   }
 }
+
+
 
 //modifica el evento para cumplir una función manejadora
 btnAdd.addEventListener('click', addNewKitten);
@@ -147,8 +184,12 @@ function addNewKitten(event) {
   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
   } else {
   //completa el código
+  labelMessageError.innerHTML = '';
 }
 };
+
+
+
 
 // crear cards con gatos
 const inputRace = document.querySelector('.js-input-race');
@@ -171,24 +212,26 @@ function renderKitten(url, desc, name, race) {
     ${desc}
   </p>
 </article>
-</li>`;
-}
+</li>`
+};
+
+
 // filtrar por descripcion
 
 const buttonSearch = document.querySelector('.js-button-search');
 
 // const input_search_desc = document.querySelector('.js_in_search_desc');
 // const descrSearchText = input_search_desc.value; 
-const input_search_race =document.querySelector('.js-inputRace');
+const input_search_race =document.querySelector('.js_in_search_race');
 const labelMsg = document.querySelector('.js-label-msg');
 
 
 function filterkitten (event) {
-  // event.preventDefault()
   const valueRace = input_search_race.value;
   const valueDescripcion = input_search_desc.value;
   if ( valueDescripcion === '' || valueRace === '') {
-    labelMsg.innerHTML = "tienes que rellenar algún campo"
+    labelMsg.innerHTML = "tienes que rellenar algún campo";
+    event.preventDefault();
   }
   if (kittenDesc1.includes(descrSearchText)) {
         listElement.innerHTML += kittenOne;
@@ -204,4 +247,16 @@ function filterkitten (event) {
 
 buttonSearch.addEventListener('click', filterkitten);
 
+// function renderRace (event) {
+//   const valueRace = input_search_race.value;
+//   if ( valueRace === ''){
+//     labelMsg.innerHTML = "uy que despiste, no sabemos su raza";
+//     event.preventDefault();
+//   }
+//   else {
+//    inputRace.innerHTML = valueRace;
+//   }
+ 
+// };
+// buttonSearch.addEventListener('click', renderRace);
 
