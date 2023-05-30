@@ -190,7 +190,7 @@ const cat2 = renderKitten(
   kittenDataList[1].image,
   kittenDataList[1].desc,
   kittenDataList[1].name,
-  kittenDataList[1].race
+ kittenDataList[1].race
 );
 const cat3 = renderKitten(
   kittenDataList[2].image,
@@ -202,9 +202,9 @@ const cat3 = renderKitten(
 function renderKitten(url, desc, name, race) {
   const list = `<li class="card">
       <article>
-      <img
+            <img
       class="card_img"
-      src="${url}"
+     src="${url}"
       alt="siames-cat"
     />
     <h3 class="card_title">${name}</h3>
@@ -217,9 +217,9 @@ function renderKitten(url, desc, name, race) {
   return list;
 }
 
-listElement.innerHTML = cat1;
-listElement.innerHTML += cat2;
-listElement.innerHTML += cat3;
+//listElement.innerHTML = cat1;
+//listElement.innerHTML += cat2;
+//listElement.innerHTML += cat3;
 
 // filtrar por descripcion
 
@@ -230,23 +230,23 @@ const buttonSearch = document.querySelector(".js-button-search");
 const input_search_race = document.querySelector(".js_in_search_race");
 const labelMsg = document.querySelector(".js-label-msg");
 
-function filterkitten(event) {
-  event.preventDefault();
-  const valueRace = input_search_race.value;
-  const valueDescripcion = input_search_desc.value;
-  if (valueDescripcion === "" || valueRace === "") {
-    labelMsg.innerHTML = "tienes que rellenar algún campo";
-  }
-  if (kittenData_1.desc.includes(descrSearchText)) {
-    listElement.innerHTML += cat1;
-  }
-  if (kittenData_2.desc.includes(descrSearchText)) {
-    listElement.innerHTML += cat2;
-  }
-  if (kittenData_3.desc.includes(descrSearchText)) {
-    listElement.innerHTML += cat3;
-  }
-}
+//function filterkitten(event) {
+//  event.preventDefault();
+//  const valueRace = input_search_race.value;
+//  const valueDescripcion = input_search_desc.value;
+//  if (valueDescripcion === "" || valueRace === "") {
+//    labelMsg.innerHTML = "tienes que rellenar algún campo";
+//  }
+//  if (kittenData_1.desc.includes(descrSearchText)) {
+//    listElement.innerHTML += cat1;
+//  }
+//  if (kittenData_2.desc.includes(descrSearchText)) {
+//   listElement.innerHTML += cat2;
+//  }
+//  if (kittenData_3.desc.includes(descrSearchText)) {
+//    listElement.innerHTML += cat3;
+//  }
+//}
 
 buttonSearch.addEventListener("click", filterkitten);
 
@@ -262,3 +262,27 @@ buttonSearch.addEventListener("click", filterkitten);
 
 // };
 // buttonSearch.addEventListener('click', renderRace);
+
+
+function renderKittenList(kittenDataList) {
+  for ( const iterarGatos of kittenDataList){
+  listElement.innerHTML += renderKitten(iterarGatos.image,iterarGatos.desc, iterarGatos.name, iterarGatos.race );
+}
+}
+
+renderKittenList(kittenDataList);
+
+function filterKitten(event) {
+  event.preventDefault();
+  const descrSearchText = input_search_desc.value;
+  listElement.innerHTML = '';
+  for (const kittenItem of kittenDataList) {
+    //Completa el código
+    //Comprueba si cada gatito contiene la descripción
+    if (kittenItem.includes(descrSearchText)){
+      listElement.innerHTML += renderKitten.desc;
+    }
+    //Si la contiene pintamos un gatito
+    //utilizando la función renderKitten(kittenItem)
+  }
+}
