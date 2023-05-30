@@ -71,17 +71,17 @@ listElement.innerHTML += kittenThree;
 const input_search_desc = document.querySelector('.js_in_search_desc');
 const descrSearchText = input_search_desc.value; 
 
-if( kittenOneDescription.includes(descrSearchText) ) {
- listElement.innerHTML = kittenOne;
-}
+// if( kittenOneDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML = kittenOne;
+// }
 
-if( kittenTwoDescription.includes(descrSearchText) ) {
- listElement.innerHTML += kittenTwo;
-}
+// if( kittenTwoDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML += kittenTwo;
+// }
 
-if( kittenThreeDescription.includes(descrSearchText) ) {
- listElement.innerHTML += kittenThree; 
-}
+// if( kittenThreeDescription.includes(descrSearchText) ) {
+//  listElement.innerHTML += kittenThree; 
+// }
 
 const btnAdd =document.querySelector('.js-btn-add');
 const inputDesc = document.querySelector('.js-input-desc');
@@ -89,23 +89,24 @@ const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
 const labelMessageError = document.querySelector('.js-label-error');
 
-btnAdd.addEventListener('click', () => {
-const valueDesc = inputDesc.value;
-const valuePhoto = inputPhoto.value;
-const valueName = inputName.value;
+// btnAdd.addEventListener('click', () => {
+// const valueDesc = inputDesc.value;
+// const valuePhoto = inputPhoto.value;
+// const valueName = inputName.value;
 
-if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-  //completa el código
-  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
-} else {
-  //completa el código
+// if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+//   //completa el código
+//   labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+// } else {
+//   //completa el código
   
-}
-});
+// }
+// });
 
 const btnCancel = document.querySelector ('.js-button-cancel');
 const sctForm = document.querySelector ('.js-new-form');
 const addLogo = document.querySelector ('.js-add-logo');
+const menuNav = document.querySelector ('.js-menunav');
 
 /*
 btnCancel.addEventListener('click', (event) => {
@@ -122,13 +123,85 @@ sctForm.classList.toggle('collapsed');
 */
 
 
-sctForm.addEventListener('click', handleClickNewCatForm);
+menuNav.addEventListener('click', handleClickNewCatForm);
 
 function handleClickNewCatForm(event) {
   event.preventDefault();
-  if (sctForm.classList.toggle('collapsed');) {
-    //completa el código
-  } else (sctForm.classList.toggle('collapsed'));{
-    //completa el código
+  if (sctForm.classList.contains('collapsed')) {
+    sctForm.classList.remove('collapsed');
+  } else {
+    sctForm.classList.add('collapsed');
   }
 }
+
+//modifica el evento para cumplir una función manejadora
+btnAdd.addEventListener('click', addNewKitten);
+
+function addNewKitten(event) {
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+  //completa el código
+  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo"
+  } else {
+  //completa el código
+}
+};
+
+// crear cards con gatos
+const inputRace = document.querySelector('.js-input-race');
+
+const cat1 = renderKitten (kittenOneImg,kittenOneDescription, kittenOneName,kittenOneRace );
+const cat2 = renderKitten (kittenTwoImg,kittenTwoDescription, kittenTwoName,kittenTwoRace );
+const cat3 = renderKitten (kittenThreeImg,kittenThreeDescription, kittenThreeName,kittenThreeRace );
+
+function renderKitten(url, desc, name, race) {
+  `<li class="card">
+<article>
+  <img
+    class="card_img"
+    src="${url}"
+    alt="siames-cat"
+  />
+  <h3 class="card_title">${name}</h3>
+  <h4 class="card_race">${race}</h4>
+  <p class="card_description">
+    ${desc}
+  </p>
+</article>
+</li>`;
+}
+// filtrar por descripcion
+
+const buttonSearch = document.querySelector('.js-button-search');
+
+// const input_search_desc = document.querySelector('.js_in_search_desc');
+// const descrSearchText = input_search_desc.value; 
+const input_search_race =document.querySelector('.js-inputRace');
+const labelMsg = document.querySelector('.js-label-msg');
+
+
+function filterkitten (event) {
+  // event.preventDefault()
+  const valueRace = input_search_race.value;
+  const valueDescripcion = input_search_desc.value;
+  if ( valueDescripcion === '' || valueRace === '') {
+    labelMsg.innerHTML = "tienes que rellenar algún campo"
+  }
+  if (kittenDesc1.includes(descrSearchText)) {
+        listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.includes(descrSearchText)) {
+        listElement.innerHTML += kittenTwo;
+  }
+  if (kittenDesc3.includes(descrSearchText)) {
+        listElement.innerHTML += kittenThree;
+  }
+  };
+
+
+buttonSearch.addEventListener('click', filterkitten);
+
+
