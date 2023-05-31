@@ -228,9 +228,10 @@ const buttonSearch = document.querySelector(".js-button-search");
 // const input_search_desc = document.querySelector('.js_in_search_desc');
 // const descrSearchText = input_search_desc.value;
 const input_search_race = document.querySelector(".js_in_search_race");
+const raceSearchText = input_search_race.value;
 const labelMsg = document.querySelector(".js-label-msg");
 
-//function filterkitten(event) {
+// function filterkitten(event) {
 //  event.preventDefault();
 //  const valueRace = input_search_race.value;
 //  const valueDescripcion = input_search_desc.value;
@@ -246,9 +247,9 @@ const labelMsg = document.querySelector(".js-label-msg");
 //  if (kittenData_3.desc.includes(descrSearchText)) {
 //    listElement.innerHTML += cat3;
 //  }
-//}
+// }
 
-buttonSearch.addEventListener("click", filterkitten);
+// buttonSearch.addEventListener("click", filterkitten);
 
 // function renderRace (event) {
 //      event.preventDefault();
@@ -266,8 +267,8 @@ buttonSearch.addEventListener("click", filterkitten);
 
 function renderKittenList(kittenDataList) {
   for ( const iterarGatos of kittenDataList){
-  listElement.innerHTML += renderKitten(iterarGatos.image,iterarGatos.desc, iterarGatos.name, iterarGatos.race );
-}
+    listElement.innerHTML += renderKitten(iterarGatos.image,iterarGatos.desc, iterarGatos.name, iterarGatos.race );
+  }
 }
 
 renderKittenList(kittenDataList);
@@ -275,14 +276,22 @@ renderKittenList(kittenDataList);
 function filterKitten(event) {
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
+  const raceSearchText = input_search_race.value;
   listElement.innerHTML = '';
   for (const kittenItem of kittenDataList) {
     //Completa el código
     //Comprueba si cada gatito contiene la descripción
-    if (kittenItem.includes(descrSearchText)){
-      listElement.innerHTML += renderKitten.desc;
+    if (descrSearchText === '' && raceSearchText === ''){
+      labelMsg.innerHTML = 'tienes que rellenar algun campo';
     }
+    if(kittenItem.desc.includes(descrSearchText)){
+      console.log(kittenItem);
+      listElement.innerHTML = renderKitten(kittenItem.image, kittenItem.desc, kittenItem.name, kittenItem.race);
+      console.log("Else");
+    };
     //Si la contiene pintamos un gatito
     //utilizando la función renderKitten(kittenItem)
   }
-}
+};
+
+buttonSearch.addEventListener('click', filterKitten);
